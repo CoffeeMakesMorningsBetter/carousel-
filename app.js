@@ -15,37 +15,29 @@ var left = document.querySelector('#left')
 var right = document.querySelector('#right')
 var img = document.querySelectorAll('img')
 var clickLeft = 0
-var clickRight = 1
-
+var clickRight = arr.length-1
 
 
 left.addEventListener('click', function(){
-	if(clickLeft === 0){
-		clickLeft = arr.length-2
-		clickRight = arr.length-1
-		img[0].srcset = arr[clickLeft]
-		img[1].srcset = arr[clickRight]
-	} else {
-		clickLeft--
-		clickRight--
-		img[0].srcset = arr[clickLeft]
-		img[1].srcset = arr[clickRight]
+	// arr[0] src find which element has it when we decrement
+	for(var i = 0; i < img.length; i++){
+		if(img[i].srcset === arr[0]) {
+			img[i].srcset = arr[arr.length-1]
+		} else {
+			img[i].srcset = arr[arr.indexOf(img[i].srcset)-1]
+		}
 	}
 		
 })
 
 // RIGHT BUTTON 
 right.addEventListener('click', function(){
-	if(clickRight === arr.length-1){
-		clickRight = 1
-		clickLeft = 0
-		img[0].srcset = arr[clickLeft]
-		img[1].srcset = arr[clickRight]
-	} else {
-		clickLeft++
-		clickRight++
-		img[0].srcset = arr[clickLeft]
-		img[1].srcset = arr[clickRight]
+	for(var i = 0; i < img.length; i++){
+		if(img[i].srcset === arr[arr.length-1]){
+			img[i].srcset = arr[0]
+		} else {
+			img[i].srcset = arr[arr.indexOf(img[i].srcset)+1]
+		}
 	}
 })
 
