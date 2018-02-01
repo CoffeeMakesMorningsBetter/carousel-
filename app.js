@@ -9,17 +9,19 @@ var arr = [
 	"https://source.unsplash.com/ioy3bN5Irew",
 	"https://source.unsplash.com/1vg0LlKxHG8",
 	"https://source.unsplash.com/dmZRrWqZoXA",
+	"https://source.unsplash.com/qmnpqDwla_E",
+	"https://source.unsplash.com/BeOW_PJjA0w",
+	"https://source.unsplash.com/vhChBiAT8aQ",
+	"https://source.unsplash.com/1Fm_k4Ip7jM",
+	"https://source.unsplash.com/C16xHin1f7A"
 ]
 
 var left = document.querySelector('#left')
 var right = document.querySelector('#right')
 var img = document.querySelectorAll('img')
-var clickLeft = 0
-var clickRight = arr.length-1
-
 
 left.addEventListener('click', function(){
-	// arr[0] src find which element has it when we decrement
+	// arr[0] find in img array like object 
 	for(var i = 0; i < img.length; i++){
 		if(img[i].srcset === arr[0]) {
 			img[i].srcset = arr[arr.length-1]
@@ -32,6 +34,7 @@ left.addEventListener('click', function(){
 
 // RIGHT BUTTON 
 right.addEventListener('click', function(){
+	// arr[arr.length-1] find in img array like object 
 	for(var i = 0; i < img.length; i++){
 		if(img[i].srcset === arr[arr.length-1]){
 			img[i].srcset = arr[0]

@@ -1,3 +1,3 @@
 # carousel
 
-Basic Image Carousle 
+A simple image carousel 
